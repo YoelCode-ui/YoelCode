@@ -3,12 +3,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #121212;
+    color: #f0f0f0;
 }
 
 nav {
-    background-color: #333;
-    color: white;
+    background-color: #1f1f1f;
     padding: 10px 0;
     text-align: center;
 }
@@ -24,7 +24,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: #f0f0f0;
     text-decoration: none;
     font-weight: bold;
 }
@@ -65,10 +65,10 @@ h2 {
 }
 
 .software-card {
-    background-color: white;
+    background-color: #1f1f1f;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
     width: 300px;
     margin: 20px;
@@ -94,6 +94,24 @@ button:hover {
     background-color: #555;
 }
 
+.contact-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-info ul li {
+    margin: 10px 0;
+}
+
+.contact-info a {
+    color: #ffcc00;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
 /* Modal */
 .modal {
     display: none;
@@ -108,12 +126,13 @@ button:hover {
 }
 
 .modal-content {
-    background-color: white;
+    background-color: #1f1f1f;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     width: 500px;
     position: relative;
+    color: white;
 }
 
 .modal-content img {
@@ -126,4 +145,12 @@ button:hover {
     right: 10px;
     cursor: pointer;
     font-size: 24px;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1f1f1f;
+    color: #f0f0f0;
 }
