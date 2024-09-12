@@ -1,30 +1,48 @@
 function showDetails(softwareName) {
-    const modal = document.getElementById("modal");
-    const title = document.getElementById("modal-title");
-    const description = document.getElementById("modal-description");
-    const image = document.getElementById("modal-image");
+    const modal = document.getElementById('modal');
+    const title = document.getElementById('modal-title');
+    const description = document.getElementById('modal-description');
+    const image = document.getElementById('modal-image');
 
-    // Aquí puedes agregar más detalles sobre cada software
     const softwareDetails = {
         "Console TVFix Pro": {
-            description: "Aplicación avanzada diseñada para la comunicación con Smart TVs a través de puertos seriales.",
+            description: "Software avanzado para reparar Smart TVs mediante puertos seriales.",
             image: "images/console-tvfix-pro.jpg"
         },
         "MstarTool Basic": {
-            description: "Herramientas intuitivas para manejar firmwares de microprocesadores Mstar.",
+            description: "Herramientas básicas para la reparación de Smart TVs con procesadores Mstar.",
             image: "images/mstartool-basic.jpg"
+        },
+        "MstarTool Ultimate": {
+            description: "Versión completa de MstarTool con funciones avanzadas de reparación.",
+            image: "images/mstartool-ultimate.jpg"
+        },
+        "MstarTool Professional": {
+            description: "Software profesional para modificaciones en TVs con procesadores Mstar.",
+            image: "images/mstartool-professional.jpg"
+        },
+        "MstarTool Packer/Unpacker": {
+            description: "Empaque y desempaque de firmwares de TVs Mstar.",
+            image: "images/mstartool-packer-unpacker.jpg"
+        },
+        "RealtekTool Ultimate": {
+            description: "Software especializado para TVs con procesadores Realtek.",
+            image: "images/realtektool-ultimate.jpg"
+        },
+        "Mediatek Bootloader Tool": {
+            description: "Herramienta de extracción de bootloaders en TVs Mediatek.",
+            image: "images/mediatek-bootloader-tool.jpg"
         }
-        // Agrega más software aquí
     };
 
-    const details = softwareDetails[softwareName];
     title.textContent = softwareName;
-    description.textContent = details.description;
-    image.src = details.image;
-
+    description.textContent = softwareDetails[softwareName].description;
+    image.src = softwareDetails[softwareName].image;
     modal.style.display = "flex";
 }
 
 function closeModal() {
-    document.getElementById("modal").style.display = "none";
+    const modal = document.getElementById('modal');
+    modal.style.display = "none";
 }
+
