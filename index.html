@@ -4,10 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Software de Reparación de Smart TV</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Bienvenido a la página sobre software de reparación de Smart TV</h1>
-    <p>Aquí encontrarás información sobre varios softwares útiles para reparar y diagnosticar problemas con televisores inteligentes.</p>
-    <!-- Aquí podrás agregar más detalles sobre cada software -->
+    <!-- Barra de navegación -->
+    <nav>
+        <div class="logo">TV Repair Software</div>
+        <ul>
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#software">Software</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner principal -->
+    <header id="home">
+        <div class="banner">
+            <h1>Soluciones Profesionales para la Reparación de Smart TVs</h1>
+            <p>Software avanzado para diagnosticar y solucionar problemas de televisores inteligentes</p>
+        </div>
+    </header>
+
+    <!-- Sección de Software -->
+    <section id="software">
+        <h2>Nuestros Softwares</h2>
+        <div class="software-grid">
+            <!-- Software Card 1 -->
+            <div class="software-card">
+                <img src="images/console-tvfix-pro.jpg" alt="Console TVFix Pro">
+                <h3>Console TVFix Pro</h3>
+                <p>Aplicación avanzada diseñada para la comunicación con Smart TVs a través de puertos seriales.</p>
+                <button onclick="showDetails('Console TVFix Pro')">Ver más</button>
+            </div>
+
+            <!-- Software Card 2 -->
+            <div class="software-card">
+                <img src="images/mstartool-basic.jpg" alt="MstarTool Basic">
+                <h3>MstarTool Basic</h3>
+                <p>Herramientas intuitivas para manejar firmwares de microprocesadores Mstar.</p>
+                <button onclick="showDetails('MstarTool Basic')">Ver más</button>
+            </div>
+
+            <!-- Más software aquí -->
+            <!-- Similar a los anteriores -->
+        </div>
+    </section>
+
+    <!-- Modal para más detalles -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+            <img id="modal-image" src="" alt="">
+        </div>
+    </div>
+
+    <!-- Sección de Contacto -->
+    <section id="contact">
+        <h2>Contacto</h2>
+        <form>
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 TV Repair Software. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
+
