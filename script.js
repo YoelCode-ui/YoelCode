@@ -1,4 +1,3 @@
-// Mostrar modal con transición suave
 function showDetails(softwareName) {
     const modal = document.getElementById('modal');
     const title = document.getElementById('modal-title');
@@ -36,27 +35,16 @@ function showDetails(softwareName) {
         }
     };
 
+    // Asignar los detalles
     title.textContent = softwareName;
     description.textContent = softwareDetails[softwareName].description;
     image.src = softwareDetails[softwareName].image;
-    modal.classList.add('show'); // Añadimos la clase show para que aparezca con transición
+
+    // Mostrar modal con animación
+    modal.style.display = "flex";
 }
 
-// Cerrar modal con transición
 function closeModal() {
     const modal = document.getElementById('modal');
-    modal.classList.remove('show'); // Quitamos la clase show para hacer desaparecer el modal
+    modal.style.display = "none";
 }
-
-// Efecto de fade in al desplazarse
-window.addEventListener('scroll', function() {
-    const cards = document.querySelectorAll('.software-card');
-    const windowHeight = window.innerHeight;
-
-    cards.forEach(card => {
-        const position = card.getBoundingClientRect().top;
-        if (position < windowHeight) {
-            card.classList.add('fade-in');
-        }
-    });
-});
