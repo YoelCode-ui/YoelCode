@@ -5,35 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Software de Reparación de Smart TV</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Barra de navegación -->
     <nav>
-        <div class="logo">TV Repair Software</div>
+		<div class="logo">TV Repair Software</div>
         <ul>
-            <li><a href="#home">Inicio</a></li>
-            <li><a href="#software">Software</a></li>
-            <li><a href="#contact">Contacto</a></li>
+            <li><a href="#" onclick="showSection('home')">Inicio</a></li>
+            <li><a href="#" onclick="showSection('software')">Software</a></li>
+            <li><a href="#" onclick="showSection('contact')">Contacto</a></li>
         </ul>
     </nav>
 
-    <!-- Banner principal -->
-    <header id="home">
+    <!-- Sección de Inicio -->
+    <section id="home" class="section">
         <div class="banner">
-            <h1>Soluciones Profesionales para la Reparación de Smart TVs</h1>
-            <p>Software avanzado para diagnosticar y solucionar problemas de televisores inteligentes</p>
+            <h1 class="moving-text">Soluciones Profesionales para la Reparación de Smart TVs</h1>
+            <p class="moving-text">Software avanzado para diagnosticar y solucionar problemas de televisores inteligentes.</p>
         </div>
-    </header>
+        <div class="popular-software">
+            <div class="software-card" onclick="showDetails('Console TVFix Pro')">
+                <img src="images/console-tvfix-pro.jpg" alt="Console TVFix Pro">
+                <h3>Console TVFix Pro</h3>
+            </div>
+            <div class="software-card" onclick="showDetails('MstarTool v2.7 Professional')">
+                <img src="images/mstartool-professional.jpg" alt="MstarTool v2.7 Professional">
+                <h3>MstarTool v2.7 Professional</h3>
+            </div>
+        </div>
+    </section>
 
     <!-- Sección de Software -->
-    <section id="software">
+    <section id="software" class="section" style="display: none;">
         <h2>Nuestros Softwares</h2>
         <div class="software-grid">
             <!-- Console TVFix Pro -->
             <div class="software-card">
                 <img src="images/console-tvfix-pro.jpg" alt="Console TVFix Pro">
-                <h3>Console TVFix Pro</h3>
+                <h3>Console TVFix Pro 27 USD</h3>
                 <p>Aplicación avanzada diseñada para la comunicación con Smart TVs a través de puertos seriales.</p>
                 <button onclick="showDetails('Console TVFix Pro')">Ver más</button>
             </div>
@@ -41,7 +49,7 @@
             <!-- MstarTool Basic -->
             <div class="software-card">
                 <img src="images/mstartool-basic.jpg" alt="MstarTool Basic">
-                <h3>MstarTool Basic</h3>
+                <h3>MstarTool Basic 17 USD</h3>
                 <p>Herramientas intuitivas para manejar firmwares de microprocesadores Mstar.</p>
                 <button onclick="showDetails('MstarTool Basic')">Ver más</button>
             </div>
@@ -49,7 +57,7 @@
             <!-- MstarTool Ultimate -->
             <div class="software-card">
                 <img src="images/mstartool-ultimate.jpg" alt="MstarTool Ultimate">
-                <h3>MstarTool Ultimate</h3>
+                <h3>MstarTool Ultimate 35 USD</h3>
                 <p>Versión avanzada con herramientas para la modificación de firmwares de microprocesadores Mstar.</p>
                 <button onclick="showDetails('MstarTool Ultimate')">Ver más</button>
             </div>
@@ -57,7 +65,7 @@
             <!-- MstarTool Professional -->
             <div class="software-card">
                 <img src="images/mstartool-professional.jpg" alt="MstarTool Professional">
-                <h3>MstarTool Professional</h3>
+                <h3>MstarTool Professional 50 USD</h3>
                 <p>Software profesional para modificación y reparación de Smart TVs con tecnología Mstar.</p>
                 <button onclick="showDetails('MstarTool Professional')">Ver más</button>
             </div>
@@ -65,7 +73,7 @@
             <!-- MstarTool Packer/Unpacker -->
             <div class="software-card">
                 <img src="images/mstartool-packer-unpacker.jpg" alt="MstarTool Packer/Unpacker">
-                <h3>MstarTool Packer/Unpacker</h3>
+                <h3>MstarTool Packer/Unpacker 11 USD</h3>
                 <p>Empaque y desempaque de dumps de firmwares Mstar de forma fácil y rápida.</p>
                 <button onclick="showDetails('MstarTool Packer/Unpacker')">Ver más</button>
             </div>
@@ -73,7 +81,7 @@
             <!-- RealtekTool Ultimate -->
             <div class="software-card">
                 <img src="images/realtektool-ultimate.jpg" alt="RealtekTool Ultimate">
-                <h3>RealtekTool Ultimate</h3>
+                <h3>RealtekTool Ultimate 17 USD</h3>
                 <p>Software especializado en firmwares de microprocesadores Realtek.</p>
                 <button onclick="showDetails('RealtekTool Ultimate')">Ver más</button>
             </div>
@@ -81,25 +89,16 @@
             <!-- Mediatek Bootloader Tool -->
             <div class="software-card">
                 <img src="images/mediatek-bootloader-tool.jpg" alt="Mediatek Bootloader Tool">
-                <h3>Mediatek Bootloader Tool</h3>
+                <h3>Mediatek Bootloader Tool 6 USD</h3>
                 <p>Herramienta para la extracción de bootloaders de firmwares Mediatek.</p>
                 <button onclick="showDetails('Mediatek Bootloader Tool')">Ver más</button>
             </div>
+            <!-- Agregar aquí más software según tu necesidad -->
         </div>
     </section>
 
-    <!-- Modal para más detalles -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h3 id="modal-title"></h3>
-            <p id="modal-description"></p>
-            <img id="modal-image" src="" alt="">
-        </div>
-    </div>
-
     <!-- Sección de Contacto -->
-    <section id="contact">
+    <section id="contact" class="section" style="display: none;">
         <h2>Contacto</h2>
         <div class="contact-info">
             <p>Para más información y soporte, puedes contactarnos a través de los siguientes canales:</p>
@@ -112,10 +111,22 @@
             </ul>
         </div>
     </section>
-
-    <!-- Pie de página -->
+	
+	<!-- Pie de página -->
     <footer>
         <p>&copy; 2024 TV Repair Software. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Modal para mostrar detalles del software -->
+    <div id="modal" class="modal" onclick="closeModal()">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <h2 id="modal-title"></h2>
+            <img id="modal-image" src="" alt="Software Image">
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
