@@ -41,15 +41,17 @@ nav ul li a {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
+    color: #000; /* Cambiado a negro */
 }
 
 .banner h1 {
     font-size: 48px;
+    color: #ffcc00; /* Texto principal amarillo */
 }
 
 .banner p {
     font-size: 18px;
+    color: #fff; /* Texto secundario blanco */
 }
 
 h2 {
