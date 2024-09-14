@@ -8,113 +8,117 @@
 </head>
 <body>
     <nav>
-		<!-- <div class="logo">TV Repair Software</div> -->
+        <!-- Selector de idioma -->
+        <select id="language-select" onchange="changeLanguage(this.value)">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+        </select>
+
         <ul>
-            <li><a href="#" onclick="showSection('home')">Inicio</a></li>
-            <li><a href="#" onclick="showSection('software')">Software</a></li>
-            <li><a href="#" onclick="showSection('contact')">Contacto</a></li>
+            <li><a href="#" onclick="showSection('home')"><span class="text" data-key="nav_home">Inicio</span></a></li>
+            <li><a href="#" onclick="showSection('software')"><span class="text" data-key="nav_software">Software</span></a></li>
+            <li><a href="#" onclick="showSection('contact')"><span class="text" data-key="nav_contact">Contacto</span></a></li>
         </ul>
     </nav>
 
     <!-- Sección de Inicio -->
     <section id="home" class="section">
         <div class="banner">
-            <h1 class="moving-text">Soluciones Profesionales para la Reparación de Smart TVs</h1>
-            <p class="moving-text">Software avanzado para diagnosticar y solucionar problemas de televisores inteligentes.</p>
+            <h1 class="moving-text" data-key="banner_title">Soluciones Profesionales para la Reparación de Smart TVs</h1>
+            <p class="moving-text" data-key="banner_desc">Software avanzado para diagnosticar y solucionar problemas de televisores inteligentes.</p>
         </div>
         <div class="popular-software">
             <div class="software-card" onclick="showDetails('Console TVFix Pro')">
                 <img src="images/console-tvfix-pro.jpg" alt="Console TVFix Pro">
-                <h3>Console TVFix Pro</h3>
+                <h3 data-key="software_console_tvfix">Console TVFix Pro</h3>
             </div>
             <div class="software-card" onclick="showDetails('MstarTool Professional')">
                 <img src="images/mstartool-professional.jpg" alt="MstarTool Professional">
-                <h3>MstarTool Professional</h3>
+                <h3 data-key="software_mstartool_pro">MstarTool Professional</h3>
             </div>
         </div>
     </section>
 
     <!-- Sección de Software -->
     <section id="software" class="section" style="display: none;">
-        <h2>Nuestros Softwares</h2>
+        <h2 data-key="software_title">Nuestros Softwares</h2>
         <div class="software-grid">
             <!-- Console TVFix Pro -->
             <div class="software-card">
-                <img src="images/console-tvfix-pro.jpg" alt="Console TVFix Pro">
-                <h3>Console TVFix Pro 27 USD</h3>
-                <p>Aplicación avanzada diseñada para la comunicación con Smart TVs a través de puertos seriales.</p>
-                <button onclick="showDetails('Console TVFix Pro')">Ver más</button>
+                <img src="images/console-tvfix-pro_ico.png" alt="Console TVFix Pro">
+                <h3><span data-key="software_console_tvfix">Console TVFix Pro</span> 27 USD</h3>
+                <p data-key="desc_console_tvfix">Aplicación avanzada diseñada para la comunicación con Smart TVs a través de puertos seriales.</p>
+                <button onclick="showDetails('Console TVFix Pro')" data-key="btn_view_more">Ver más</button>
             </div>
 
             <!-- MstarTool Basic -->
             <div class="software-card">
-                <img src="images/mstartool-basic.jpg" alt="MstarTool Basic">
-                <h3>MstarTool Basic 17 USD</h3>
-                <p>Herramientas intuitivas para manejar firmwares de microprocesadores Mstar.</p>
-                <button onclick="showDetails('MstarTool Basic')">Ver más</button>
+                <img src="images/mstartool_ico.png" alt="MstarTool Basic">
+                <h3><span data-key="software_mstartool_basic">MstarTool Basic</span> 17 USD</h3>
+                <p data-key="desc_mstartool_basic">Herramientas básicas para manejar firmwares de microprocesadores Mstar.</p>
+                <button onclick="showDetails('MstarTool Basic')" data-key="btn_view_more">Ver más</button>
             </div>
 
             <!-- MstarTool Ultimate -->
             <div class="software-card">
-                <img src="images/mstartool-ultimate.jpg" alt="MstarTool Ultimate">
-                <h3>MstarTool Ultimate 35 USD</h3>
-                <p>Versión avanzada con herramientas para la modificación de firmwares de microprocesadores Mstar.</p>
-                <button onclick="showDetails('MstarTool Ultimate')">Ver más</button>
+                <img src="images/mstartool_ico.png" alt="MstarTool Ultimate">
+                <h3><span data-key="software_mstartool_ultimate">MstarTool Ultimate</span> 35 USD</h3>
+                <p data-key="desc_mstartool_ultimate">Versión avanzada con herramientas para la modificación de firmwares de microprocesadores Mstar.</p>
+                <button onclick="showDetails('MstarTool Ultimate')" data-key="btn_view_more">Ver más</button>
             </div>
 
             <!-- MstarTool Professional -->
             <div class="software-card">
-                <img src="images/mstartool-professional.jpg" alt="MstarTool Professional">
-                <h3>MstarTool Professional 50 USD</h3>
-                <p>Software profesional para modificación y reparación de Smart TVs con tecnología Mstar.</p>
-                <button onclick="showDetails('MstarTool Professional')">Ver más</button>
+                <img src="images/mstartool_ico.png" alt="MstarTool Professional">
+                <h3><span data-key="software_mstartool_pro">MstarTool Professional</span> 50 USD</h3>
+                <p data-key="desc_mstartool_pro">Software profesional para modificación y reparación de Smart TVs con tecnología Mstar.</p>
+                <button onclick="showDetails('MstarTool Professional')" data-key="btn_view_more">Ver más</button>
             </div>
 
             <!-- MstarTool Packer/Unpacker -->
             <div class="software-card">
-                <img src="images/mstartool-packer-unpacker.jpg" alt="MstarTool Packer/Unpacker">
-                <h3>MstarTool Packer/Unpacker 11 USD</h3>
-                <p>Empaque y desempaque de dumps de firmwares Mstar de forma fácil y rápida.</p>
-                <button onclick="showDetails('MstarTool Packer/Unpacker')">Ver más</button>
+                <img src="images/mstartool-packer-unpacker_ico.png" alt="MstarTool Packer/Unpacker">
+                <h3><span data-key="software_packer_unpacker">MstarTool Packer/Unpacker</span> 11 USD</h3>
+                <p data-key="desc_packer_unpacker">Empaque y desempaque de dumps de firmwares Mstar de forma fácil y rápida.</p>
+                <button onclick="showDetails('MstarTool Packer/Unpacker')" data-key="btn_view_more">Ver más</button>
             </div>
 
             <!-- RealtekTool Ultimate -->
             <div class="software-card">
                 <img src="images/realtektool-ultimate.jpg" alt="RealtekTool Ultimate">
-                <h3>RealtekTool Ultimate 17 USD</h3>
-                <p>Software especializado en firmwares de microprocesadores Realtek.</p>
-                <button onclick="showDetails('RealtekTool Ultimate')">Ver más</button>
+                <h3><span data-key="software_realtek_ultimate">RealtekTool Ultimate</span> 17 USD</h3>
+                <p data-key="desc_realtek_ultimate">Software especializado en firmwares de microprocesadores Realtek.</p>
+                <button onclick="showDetails('RealtekTool Ultimate')" data-key="btn_view_more">Ver más</button>
             </div>
 
             <!-- Mediatek Bootloader Tool -->
             <div class="software-card">
-                <img src="images/mediatek-bootloader-tool.jpg" alt="Mediatek Bootloader Tool">
-                <h3>Mediatek Bootloader Tool 6 USD</h3>
-                <p>Herramienta para la extracción de bootloaders de firmwares Mediatek.</p>
-                <button onclick="showDetails('Mediatek Bootloader Tool')">Ver más</button>
+                <img src="images/mediatek-bootloader-tool_ico.png" alt="Mediatek Bootloader Tool">
+                <h3><span data-key="software_mediatek_bootloader">Mediatek Bootloader Tool</span> 6 USD</h3>
+                <p data-key="desc_mediatek_bootloader">Herramienta para la extracción de bootloaders de firmwares Mediatek.</p>
+                <button onclick="showDetails('Mediatek Bootloader Tool')" data-key="btn_view_more">Ver más</button>
             </div>
-            <!-- Agregar aquí más software según tu necesidad -->
         </div>
     </section>
 
     <!-- Sección de Contacto -->
     <section id="contact" class="section" style="display: none;">
-        <h2>Contacto</h2>
+        <h2 data-key="contact_title">Contacto</h2>
         <div class="contact-info">
-            <p>Para más información y soporte, puedes contactarnos a través de los siguientes canales:</p>
+            <p data-key="contact_desc">Para más información y soporte, puedes contactarnos a través de los siguientes canales:</p>
             <ul>
-                <li><a href="https://www.youtube.com/@yoelcode" target="_blank">Canal de YouTube</a></li>
-                <li><a href="https://t.me/+jhrpO99SAy4wZDlh" target="_blank">Grupo de Telegram: Smart TV Mods Community</a></li>
-                <li><a href="https://api.whatsapp.com/send?phone=5356113984" target="_blank">WhatsApp: +5356113984</a></li>
-                <li>Teléfono: +5356113984</li>
-                <li>Pagos a través de: <strong>PayPal</strong></li>
+                <li><a href="https://www.youtube.com/@yoelcode" target="_blank" data-key="contact_youtube">Canal de YouTube</a></li>
+                <li><a href="https://t.me/+jhrpO99SAy4wZDlh" target="_blank" data-key="contact_telegram">Grupo de Telegram: Smart TV Mods Community</a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=5356113984" target="_blank" data-key="contact_whatsapp">WhatsApp: +5356113984</a></li>
+                <li data-key="contact_phone">Teléfono: +5356113984</li>
+                <li data-key="contact_payment">Pagos a través de: <strong>PayPal</strong></li>
             </ul>
         </div>
     </section>
-	
-	<!-- Pie de página -->
+
+    <!-- Pie de página -->
     <footer>
-        <p>&copy; 2024 TV Repair Software. Todos los derechos reservados.</p>
+        <p data-key="footer">&copy; 2024 TV Repair Software. Todos los derechos reservados.</p>
     </footer>
 
     <!-- Modal para mostrar detalles del software -->
