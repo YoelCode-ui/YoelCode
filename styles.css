@@ -1,10 +1,12 @@
+
+
 /* Estilos básicos */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 	color: #f0f0f0;
-    background-color: #262626;
+    background-color: #161616;
 }
 
 nav {
@@ -42,6 +44,22 @@ nav ul li a:hover {
     color: #ffdd57;
 }
 
+/* Estilos básicos para el selector de idioma */
+#language-select {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#language-select:hover {
+    background-color: #ffdd57;
+}
+
 /* Estilos de sección */
 .section {
     padding: 40px 20px;
@@ -51,14 +69,13 @@ nav ul li a:hover {
 .banner {
     background-image: url('images/banner.jpg');
     background-size: cover;
-    color: white;
-    padding: 100px 20px;
+    color: yellow;
+    padding: 20px;
     text-align: center;
 }
 
 .moving-text {
     font-size: 2em;
-    margin: 0;
     animation: moveText 10s infinite;
 }
 
@@ -73,6 +90,7 @@ nav ul li a:hover {
     justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
+	padding: 40px;
 }
 
 .software-card {
@@ -103,7 +121,7 @@ button {
     background-color: #333;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -115,7 +133,7 @@ button:hover {
 /* Contact section */
 .contact-info ul {
     list-style: none;
-    padding: 0;
+	padding: 10px;
 }
 
 .contact-info li {
@@ -157,7 +175,7 @@ footer {
 }
 
 .modal-content img {
-    width: 100%;
+    width: 60%;
     height: auto;
 }
 
