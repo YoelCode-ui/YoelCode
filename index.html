@@ -4,121 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Software de Reparación de Smart TV</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- AOS Library -->
 </head>
 <body>
     <nav>
-        <!-- Selector de idioma -->
-        <select id="language-select" onchange="changeLanguage(this.value)">
-            <option value="es">Español</option>
-            <option value="en">English</option>
-        </select>
-
         <ul>
-            <li><a href="#" onclick="showSection('home')"><span class="text" data-key="nav_home">Inicio</span></a></li>
-            <li><a href="#" onclick="showSection('software')"><span class="text" data-key="nav_software">Software</span></a></li>
-            <li><a href="#" onclick="showSection('contact')"><span class="text" data-key="nav_contact">Contacto</span></a></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="software.html">Software</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
         </ul>
     </nav>
 
-    <!-- Sección de Inicio -->
     <section id="home" class="section">
         <div class="banner">
-            <h1 class="moving-text" data-key="banner_title">Soluciones Profesionales para la Reparación de Smart TVs</h1>
-            <p class="moving-text" data-key="banner_desc">Software avanzado para diagnosticar y solucionar problemas de televisores inteligentes.</p>
+            <h1 class="moving-text animate__animated animate__fadeInDown">Soluciones Profesionales para la Reparación de Smart TVs</h1>
+            <p class="moving-text animate__animated animate__fadeInUp">Software avanzado para diagnosticar y solucionar problemas de televisores inteligentes.</p>
+            <a href="software.html" class="cta-button animate__animated animate__pulse animate__infinite">Explorar Softwares</a>
         </div>
-        <div class="popular-software">
-            <div class="software-card" onclick="showDetails('Console TVFix Pro')">
-                <img src="images/console-tvfix-pro.jpg" alt="Console TVFix Pro">
-                <h3 data-key="software_console_tvfix">Console TVFix Pro</h3>
-            </div>
-            <div class="software-card" onclick="showDetails('MstarTool Professional')">
-                <img src="images/mstartool-professional.jpg" alt="MstarTool Professional">
-                <h3 data-key="software_mstartool_pro">MstarTool Professional</h3>
+
+        <!-- Sección de Beneficios -->
+        <div class="benefits-section">
+            <h2 data-aos="fade-down">¿Por qué elegirnos?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-left">
+                    <img src="images/icon-tools.png" alt="Herramientas">
+                    <h3>Software Avanzado</h3>
+                    <p>Herramientas profesionales para diagnosticar y reparar Smart TVs de manera eficiente.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-up">
+                    <img src="images/icon-support.png" alt="Soporte">
+                    <h3>Soporte Técnico</h3>
+                    <p>Asistencia técnica especializada disponible.</p>
+                </div>
+                <div class="benefit-card" data-aos="fade-right">
+                    <img src="images/icon-price.png" alt="Precios">
+                    <h3>Precios Competitivos</h3>
+                    <p>Ofrecemos las mejores soluciones a precios accesibles.</p>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Sección de Software -->
-    <section id="software" class="section" style="display: none;">
-        <h2 data-key="software_title">Nuestros Softwares</h2>
-        <div class="software-grid">
-            <!-- Console TVFix Pro -->
-            <div class="software-card">
-                <img src="images/console-tvfix-pro_ico.png" alt="Console TVFix Pro">
-                <h3><span data-key="software_console_tvfix">Console TVFix Pro</span> 27 USD</h3>
-                <p data-key="desc_console_tvfix">Aplicación avanzada diseñada para la comunicación con Smart TVs a través de puertos seriales.</p>
-                <button onclick="showDetails('Console TVFix Pro')" data-key="btn_view_more">Ver más</button>
-            </div>
-
-            <!-- MstarTool Basic -->
-            <div class="software-card">
-                <img src="images/mstartool_ico.png" alt="MstarTool Basic">
-                <h3><span data-key="software_mstartool_basic">MstarTool Basic</span> 17 USD</h3>
-                <p data-key="desc_mstartool_basic">Herramientas básicas para manejar firmwares de microprocesadores Mstar.</p>
-                <button onclick="showDetails('MstarTool Basic')" data-key="btn_view_more">Ver más</button>
-            </div>
-
-            <!-- MstarTool Ultimate -->
-            <div class="software-card">
-                <img src="images/mstartool_ico.png" alt="MstarTool Ultimate">
-                <h3><span data-key="software_mstartool_ultimate">MstarTool Ultimate</span> 35 USD</h3>
-                <p data-key="desc_mstartool_ultimate">Versión avanzada con herramientas para la modificación de firmwares de microprocesadores Mstar.</p>
-                <button onclick="showDetails('MstarTool Ultimate')" data-key="btn_view_more">Ver más</button>
-            </div>
-
-            <!-- MstarTool Professional -->
-            <div class="software-card">
-                <img src="images/mstartool_ico.png" alt="MstarTool Professional">
-                <h3><span data-key="software_mstartool_pro">MstarTool Professional</span> 50 USD</h3>
-                <p data-key="desc_mstartool_pro">Software profesional para modificación y reparación de Smart TVs con tecnología Mstar.</p>
-                <button onclick="showDetails('MstarTool Professional')" data-key="btn_view_more">Ver más</button>
-            </div>
-
-            <!-- MstarTool Packer/Unpacker -->
-            <div class="software-card">
-                <img src="images/mstartool-packer-unpacker_ico.png" alt="MstarTool Packer/Unpacker">
-                <h3><span data-key="software_packer_unpacker">MstarTool Packer/Unpacker</span> 11 USD</h3>
-                <p data-key="desc_packer_unpacker">Empaque y desempaque de dumps de firmwares Mstar de forma fácil y rápida.</p>
-                <button onclick="showDetails('MstarTool Packer/Unpacker')" data-key="btn_view_more">Ver más</button>
-            </div>
-
-            <!-- RealtekTool Ultimate -->
-            <div class="software-card">
-                <img src="images/realtektool-ultimate.jpg" alt="RealtekTool Ultimate">
-                <h3><span data-key="software_realtek_ultimate">RealtekTool Ultimate</span> 17 USD</h3>
-                <p data-key="desc_realtek_ultimate">Software especializado en firmwares de microprocesadores Realtek.</p>
-                <button onclick="showDetails('RealtekTool Ultimate')" data-key="btn_view_more">Ver más</button>
-            </div>
-
-            <!-- Mediatek Bootloader Tool -->
-            <div class="software-card">
-                <img src="images/mediatek-bootloader-tool_ico.png" alt="Mediatek Bootloader Tool">
-                <h3><span data-key="software_mediatek_bootloader">Mediatek Bootloader Tool</span> 6 USD</h3>
-                <p data-key="desc_mediatek_bootloader">Herramienta para la extracción de bootloaders de firmwares Mediatek.</p>
-                <button onclick="showDetails('Mediatek Bootloader Tool')" data-key="btn_view_more">Ver más</button>
+        <!-- Preguntas Frecuentes -->
+        <div class="faq-section">
+            <h2 data-aos="fade-down">Preguntas Frecuentes</h2>
+            <div class="faq-grid">
+                <div class="faq-card" data-aos="fade-left">
+                    <h3>¿Cómo funciona el software?</h3>
+                    <p>Nuestro software se conecta a tu Smart TV a través de puertos seriales para diagnosticar y reparar problemas.</p>
+                </div>
+                <div class="faq-card" data-aos="fade-right">
+                    <h3>¿Es compatible con todas las marcas?</h3>
+                    <p>Sí, nuestro software es compatible con la mayoría de las marcas de Smart TVs.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Contacto -->
-    <section id="contact" class="section" style="display: none;">
-        <h2 data-key="contact_title">Contacto</h2>
-        <div class="contact-info">
-            <p data-key="contact_desc">Para más información y soporte, puedes contactarnos a través de los siguientes canales:</p>
-            <ul>
-                <li><a href="https://www.youtube.com/@yoelcode" target="_blank" data-key="contact_youtube">Canal de YouTube</a></li>
-                <li><a href="https://t.me/+jhrpO99SAy4wZDlh" target="_blank" data-key="contact_telegram">Grupo de Telegram: Smart TV Mods Community</a></li>
-                <li><a href="https://api.whatsapp.com/send?phone=5356113984" target="_blank" data-key="contact_whatsapp">WhatsApp: +5356113984</a></li>
-                <li data-key="contact_phone">Teléfono: +5356113984</li>
-                <li data-key="contact_payment">Pagos a través de: <strong>PayPal</strong></li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Pie de página -->
     <footer>
-        <p data-key="footer">&copy; 2024 TV Repair Software. Todos los derechos reservados.</p>
+        <p>&copy; 2024 TV Repair Software. Todos los derechos reservados.</p>
     </footer>
 
     <!-- Modal para mostrar detalles del software -->
@@ -131,6 +76,14 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <!-- AOS Library -->
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 1000, // Duración de la animación
+            once: false, // La animación se ejecuta cada vez que el elemento aparece en pantalla
+        });
+    </script>
 </body>
 </html>
