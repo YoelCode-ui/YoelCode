@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f1720;         /* fondo oscuro */
+      --bg:#0f1720;
       --card:#0f1728;
       --muted:#94a3b8;
       --accent:#ffd54a;
@@ -31,44 +31,41 @@
       -moz-osx-font-smoothing:grayscale;
       line-height:1.45;
       padding-bottom:80px;
+      /* espacio para header fijo */
+      padding-top: 72px;
     }
-	
-	#faq, #contact {
-  background: linear-gradient(to bottom, var(--bg) 0%, #0a121b 100%);
-  padding: 30px 0;
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
+
+    #faq, #contact {
+      background: linear-gradient(to bottom, var(--bg) 0%, #0a121b 100%);
+      padding: 30px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
 
     .wrap{max-width:var(--max-width);margin:0 auto;padding:28px}
 
     /* Header fijo en la parte superior (siempre visible) */
-header{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: rgba(3,7,12,0.6);            /* ligero fondo semi-transparente */
-  backdrop-filter: blur(8px);
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.03);
-}
+    header{
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(3,7,12,0.6);
+      backdrop-filter: blur(8px);
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
 
-/* contenedor centrado dentro del header (igual que .wrap) */
-.header-inner{
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Deja espacio para el header fijo (ajusta 72px si tu header cambia de altura) */
-body {
-  padding-top: 72px;
-}
-
+    /* contenedor centrado dentro del header (igual que .wrap) */
+    .header-inner{
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
 
     .nav{display:flex;align-items:center;gap:16px;justify-content:space-between}
     .brand{display:flex;align-items:center;gap:12px}
@@ -79,10 +76,10 @@ body {
 
     .controls{display:flex;gap:8px;align-items:center}
     .btn{background:var(--accent);color:#071018;padding:8px 12px;border-radius:9px;border:none;font-weight:700;cursor:pointer}
-    .ghost{background:transparent;color:var(--muted);border:1px solid transparent}
+    .ghost{background:transparent;color:var(--muted);border:1px solid transparent;padding:8px 10px;border-radius:8px}
 
     /* Mobile menu */
-    .hamburger{display:none;background:transparent;border:0;color:var(--muted);font-size:1.2rem}
+    .hamburger{display:none;background:transparent;border:0;color:var(--muted);font-size:1.2rem;cursor:pointer}
 
     /* Hero */
     .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;padding:44px 0}
@@ -100,12 +97,32 @@ body {
     .card p{color:var(--muted);margin:0 0 12px}
     .card .actions{display:flex;gap:8px}
 
-    /* Modal */
-    .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(2,6,23,0.7);z-index:60;padding:28px}
+    /* Modal - overlay */
+    .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(2,6,23,0.7);z-index:2000;padding:18px}
     .modal[open]{display:grid}
-    .modal-panel{width:100%;max-width:880px;background:#071026;border-radius:14px;padding:20px;border:1px solid rgba(255,255,255,0.03)}
+    /* Modal panel: limitamos altura y permitimos scroll interno */
+    .modal-panel{width:100%;max-width:880px;background:#071026;border-radius:14px;padding:20px;border:1px solid rgba(255,255,255,0.03);max-height:90vh;overflow:auto;position:relative;padding-top:48px}
     .modal-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
     .modal img{width:100%;height:220px;object-fit:cover;border-radius:10px}
+
+    /* Botón cerrar siempre visible dentro del panel */
+    .modal-panel .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: transparent;
+      border: 0;
+      color: var(--muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 5;
+      padding: 6px;
+      border-radius: 8px;
+    }
+    .modal-panel .close-btn:hover {
+      color: #ffffff;
+      background: rgba(255,255,255,0.03);
+    }
 
     /* Contact */
     .contact{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:28px}
@@ -124,6 +141,15 @@ body {
       .hamburger{display:inline-block}
     }
 
+    /* modal responsive: una columna en móviles */
+    @media (max-width:640px) {
+      .modal-grid { grid-template-columns: 1fr; }
+      .modal img { height: 160px; }
+      .modal-panel { padding: 12px; padding-top: 48px; }
+      .header-inner { padding: 0 16px; }
+      .wrap { padding: 18px; }
+    }
+
     /* micro animations */
     .fade-up{transform:translateY(6px);opacity:0;animation:up .5s forwards}
     @keyframes up{to{transform:none;opacity:1}}
@@ -134,32 +160,31 @@ body {
 </head>
 <body>
   <header>
-  <div class="header-inner">
-    <div class="brand">
-      <div class="logo" aria-hidden>TV</div>
-      <div>
-        <div style="font-weight:700">TV Repair Software</div>
-        <div style="font-size:0.8rem;color:var(--muted)">Soluciones profesionales para Smart TV</div>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden>TV</div>
+        <div>
+          <div style="font-weight:700">TV Repair Software</div>
+          <div style="font-size:0.8rem;color:var(--muted)">Soluciones profesionales para Smart TV</div>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <button class="hamburger" id="burger" aria-expanded="false" aria-controls="menu">☰</button>
+        <ul id="menu">
+          <li><a href="#home">Inicio</a></li>
+          <li><a href="#software">Softwares</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="controls">
+        <a class="ghost" href="https://www.youtube.com/@yoelcode" target="_blank" rel="noopener">YouTube</a>
+        <a class="ghost" href="https://t.me/+jhrpO99SAy4wZDlh" target="_blank" rel="noopener">Telegram</a>
       </div>
     </div>
-
-    <nav aria-label="Navegación principal">
-      <button class="hamburger" id="burger" aria-expanded="false" aria-controls="menu">☰</button>
-      <ul id="menu">
-        <li><a href="#home">Inicio</a></li>
-        <li><a href="#software">Softwares</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
-    </nav>
-
-    <div class="controls">
-      <a class="ghost" href="https://www.youtube.com/@yoelcode" target="_blank" rel="noopener">YouTube</a>
-      <a class="ghost" href="https://t.me/+jhrpO99SAy4wZDlh" target="_blank" rel="noopener">Telegram</a>
-    </div>
-  </div>
-</header>
-
+  </header>
 
   <main class="wrap">
 
@@ -199,7 +224,6 @@ body {
       <p style="color:var(--muted);margin-top:6px">Elige la versión que se ajuste a tu necesidad. Haz clic en "Detalles" para más información.</p>
 
       <div class="grid" style="margin-top:14px">
-        <!-- Card template repeated -->
         <article class="card fade-up" data-name="Console TVFix Pro" data-price="15" data-img="images/console-tvfix-pro.jpg" data-desc="Aplicación avanzada diseñada para la comunicación con Smart TVs a través de puertos seriales.">
           <img src="images/console-tvfix-pro_ico.png" alt="Console TVFix Pro">
           <h3>Console TVFix Pro <span class="price">$15 USD</span></h3>
@@ -213,7 +237,7 @@ body {
         <article class="card fade-up" data-name="MstarTool 3" data-price="20" data-img="images/mstartool-professional.jpg" data-desc="Herramientas profesionales para modificación y reparación de Smart TVs con tecnología Mstar.">
           <img src="images/mstartool_ico.png" alt="MstarTool 3">
           <h3>MstarTool 3 <span class="price">$20 USD</span></h3>
-          <p>Edición completa de logo/panel/Mirror, Rápido empaquetado / desempaquetado de particiones..</p>
+          <p>Edición completa de logo/panel/Mirror, Rápido empaquetado / desempaquetado de particiones.</p>
           <div class="actions">
             <button class="btn" onclick="openDetails(event)">Detalles</button>
             <a class="ghost" href="#contact">Comprar</a>
@@ -261,7 +285,6 @@ body {
             <li><strong>Pagos:</strong> PayPal</li>
           </ul>
         </div>
-
       </div>
     </section>
 
@@ -273,10 +296,13 @@ body {
   <!-- Modal: detalles de software -->
   <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-panel" role="document" aria-labelledby="modalTitle">
+      <!-- botón de cerrar absoluto (siempre visible) -->
+      <button class="close-btn" aria-label="Cerrar" id="modalClose" onclick="closeModal()">✕</button>
+
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <h3 id="modalTitle">Detalles</h3>
-        <button aria-label="Cerrar" onclick="closeModal()" style="background:transparent;border:0;color:var(--muted);font-size:1.2rem">✕</button>
+        <h3 id="modalTitle" style="margin:0">Detalles</h3>
       </div>
+
       <div class="modal-grid">
         <div>
           <img id="modalImg" src="" alt="Imagen del software">
@@ -307,18 +333,33 @@ body {
       menu.style.position = 'absolute';
       menu.style.right = '24px';
       // calcula la altura real del header para situar el menú móvil justo debajo
-const headerEl = document.querySelector('header');
-const headerHeight = headerEl ? headerEl.offsetHeight : 70;
-menu.style.top = (headerHeight + 8) + 'px';
-
-      menu.style.background = 'rgba(3,7,12,0.6)';
+      const headerEl = document.querySelector('header');
+      const headerHeight = headerEl ? headerEl.offsetHeight : 70;
+      menu.style.top = (headerHeight + 8) + 'px';
+      menu.style.background = 'rgba(3,7,12,0.92)';
       menu.style.padding = '12px';
       menu.style.borderRadius = '10px';
+      menu.style.boxShadow = '0 8px 30px rgba(2,6,23,0.6)';
     });
 
-    // Modal logic
+    // ocultar menú móvil al pulsar un enlace (mejora UX)
+    document.querySelectorAll('#menu a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        if (window.innerWidth <= 980) {
+          menu.style.display = 'none';
+          burger.setAttribute('aria-expanded','false');
+        }
+      });
+    });
+
+    // Modal logic + manejo de foco y cierre por overlay/Esc
     const modal = document.getElementById('modal');
+    let _prevFocus = null;
+
     function openDetails(e){
+      // guarda foco previo
+      _prevFocus = document.activeElement;
+
       const card = e.currentTarget.closest('.card');
       const name = card.dataset.name;
       const price = card.dataset.price;
@@ -332,16 +373,26 @@ menu.style.top = (headerHeight + 8) + 'px';
       document.getElementById('modalBuy').href = '#contact';
       modal.setAttribute('aria-hidden','false');
       modal.style.display = 'grid';
-      // focus management
-      document.getElementById('modalBuy').focus();
+      // focus management: llevar el foco al botón cerrar (útil en móviles)
+      const closeBtn = document.getElementById('modalClose');
+      if (closeBtn) closeBtn.focus();
       document.addEventListener('keydown', escClose);
     }
+
     function closeModal(){
       modal.setAttribute('aria-hidden','true');
       modal.style.display = 'none';
       document.removeEventListener('keydown', escClose);
+      // restaura foco previo si existe
+      try { if(_prevFocus && typeof _prevFocus.focus === 'function') _prevFocus.focus(); } catch(e){}
     }
+
     function escClose(ev){ if(ev.key === 'Escape') closeModal(); }
+
+    // cerrar modal si se hace click en overlay (fuera del panel)
+    modal.addEventListener('click', (e)=>{
+      if (e.target === modal) closeModal();
+    });
 
     // progressive micro-animations: reveal cards
     document.addEventListener('DOMContentLoaded', ()=>{
@@ -349,7 +400,6 @@ menu.style.top = (headerHeight + 8) + 'px';
         setTimeout(()=>el.style.animationPlayState='running', i*80);
       });
     });
-
   </script>
 </body>
 </html>
