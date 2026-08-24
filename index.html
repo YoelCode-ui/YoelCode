@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YoelCode — Software Profesional para Reparación de Smart TVs</title>
     <meta name="description" content="Console TVFix Pro v3 y MstarTool 3. Herramientas profesionales para diagnóstico, reparación y edición de firmware de Smart TVs. Compatible con Windows y Android.">
-    <meta name="keywords" content="smart tv repair, tv firmware, UART, console tvfix, mstartool, yoelcode, reparación tv, firmware tv">
+    <meta name="keywords" content="smart tv repair, tv firmware, UART, console tvfix, mstartool, yoelcode, reparación tv, firmware tv, prueba gratuita, trial, demo">
     <meta name="author" content="YoelCode">
     <meta property="og:title" content="YoelCode — Software Profesional para Reparación de Smart TVs">
-    <meta property="og:description" content="Herramientas profesionales para diagnóstico, reparación y edición de firmware de Smart TVs.">
+    <meta property="og:description" content="Herramientas profesionales para diagnóstico, reparación y edición de firmware de Smart TVs. ¡Prueba gratis antes de comprar!">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yoelcode-ui.github.io">
     <link rel="canonical" href="https://yoelcode-ui.github.io">
@@ -40,15 +40,19 @@
             --accent-tertiary: #7c3aed;
             --accent-warning: #f59e0b;
             --accent-danger: #ef4444;
+            --accent-trial: #fbbf24;
+            --accent-trial-rgb: 251, 191, 36;
             --border-color: rgba(255, 255, 255, 0.06);
             --border-glow: rgba(0, 212, 170, 0.3);
             --gradient-primary: linear-gradient(135deg, #00d4aa 0%, #00b4d8 100%);
             --gradient-secondary: linear-gradient(135deg, #7c3aed 0%, #00b4d8 100%);
+            --gradient-trial: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
             --gradient-dark: linear-gradient(180deg, #0a0e17 0%, #0f1420 100%);
             --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
             --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
             --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
             --shadow-glow: 0 0 30px rgba(0, 212, 170, 0.15);
+            --shadow-glow-trial: 0 0 30px rgba(251, 191, 36, 0.2);
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 16px;
@@ -171,6 +175,13 @@
             background-clip: text;
         }
 
+        .gradient-text-trial {
+            background: var(--gradient-trial);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -195,6 +206,16 @@
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 25px rgba(var(--accent-primary-rgb), 0.4);
+        }
+
+        .btn-trial {
+            background: var(--gradient-trial);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(var(--accent-trial-rgb), 0.3);
+        }
+        .btn-trial:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(var(--accent-trial-rgb), 0.4);
         }
 
         .btn-secondary {
@@ -278,6 +299,11 @@
         @keyframes terminal-blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
 
         .animate-on-scroll {
@@ -606,36 +632,31 @@
         }
 
         /* Terminal: las líneas se muestran sin animación CSS (el JS controla todo) */
-.terminal-line {
-    margin-bottom: 6px;
-    opacity: 1;
-}
+        .terminal-line {
+            margin-bottom: 6px;
+            opacity: 1;
+        }
 
-.terminal-progress-line {
-    min-height: 1.5em;
-    font-variant-numeric: tabular-nums;
-}
+        .terminal-progress-line {
+            min-height: 1.5em;
+            font-variant-numeric: tabular-nums;
+        }
 
-/* Cursor parpadeante */
-.terminal-cursor {
-    display: inline-block;
-    width: 8px;
-    height: 14px;
-    background: var(--accent-primary);
-    animation: terminal-blink 1s infinite;
-    vertical-align: text-bottom;
-    margin-left: 2px;
-}
+        /* Cursor parpadeante */
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 14px;
+            background: var(--accent-primary);
+            animation: terminal-blink 1s infinite;
+            vertical-align: text-bottom;
+            margin-left: 2px;
+        }
 
-@keyframes terminal-blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-/* Efecto de typing: sin overflow oculto para que se vea bien en todas las fuentes */
-.terminal-command {
-    color: var(--text-primary);
-}
+        @keyframes terminal-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
 
         .terminal-prompt {
             color: var(--accent-primary);
@@ -889,6 +910,157 @@
         }
 
         /* ==========================================
+           TRIAL SECTION
+           ========================================== */
+        .trial-section {
+            background: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trial-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(var(--accent-trial-rgb), 0.3), transparent);
+        }
+
+        .trial-banner {
+            background: linear-gradient(135deg, rgba(var(--accent-trial-rgb), 0.08) 0%, rgba(var(--accent-primary-rgb), 0.05) 100%);
+            border: 1px solid rgba(var(--accent-trial-rgb), 0.2);
+            border-radius: var(--radius-xl);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trial-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(var(--accent-trial-rgb), 0.05) 0%, transparent 50%);
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .trial-banner-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .trial-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(var(--accent-trial-rgb), 0.15);
+            border: 1px solid rgba(var(--accent-trial-rgb), 0.3);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-trial);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
+        }
+
+        .trial-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .trial-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        .trial-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .trial-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+
+        .trial-feature:hover {
+            border-color: rgba(var(--accent-trial-rgb), 0.3);
+            transform: translateY(-3px);
+        }
+
+        .trial-feature-icon {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            background: rgba(var(--accent-trial-rgb), 0.1);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-trial);
+            font-size: 1.1rem;
+        }
+
+        .trial-feature-content h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+
+        .trial-feature-content p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .trial-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .trial-notice {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 12px 24px;
+            background: rgba(var(--accent-warning), 0.1);
+            border: 1px solid rgba(var(--accent-warning), 0.2);
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            color: var(--accent-warning);
+        }
+
+        .trial-notice i {
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================
            LICENSE SECTION
            ========================================== */
         .license-section {
@@ -1129,6 +1301,15 @@
 
         .faq-answer-content strong {
             color: var(--text-primary);
+        }
+
+        .faq-highlight {
+            display: inline-block;
+            padding: 2px 8px;
+            background: rgba(var(--accent-trial-rgb), 0.15);
+            border-radius: 4px;
+            color: var(--accent-trial);
+            font-weight: 600;
         }
 
         /* ==========================================
@@ -1467,6 +1648,23 @@
             .license-security-badges {
                 flex-direction: column;
             }
+
+            .trial-banner {
+                padding: 40px 24px;
+            }
+
+            .trial-features {
+                grid-template-columns: 1fr;
+            }
+
+            .trial-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .trial-actions .btn {
+                width: 100%;
+            }
         }
 
         /* ==========================================
@@ -1531,6 +1729,7 @@
                 <a href="#home">Inicio</a>
                 <a href="#features">Características</a>
                 <a href="#software">Software</a>
+                <a href="#prueba">Prueba Gratis</a>
                 <a href="#licencia">Licencias</a>
                 <a href="#faq">FAQ</a>
                 <a href="#contact">Contacto</a>
@@ -1558,6 +1757,7 @@
         <a href="#home" onclick="closeMobileMenu()">Inicio</a>
         <a href="#features" onclick="closeMobileMenu()">Características</a>
         <a href="#software" onclick="closeMobileMenu()">Software</a>
+        <a href="#prueba" onclick="closeMobileMenu()">Prueba Gratis</a>
         <a href="#licencia" onclick="closeMobileMenu()">Licencias</a>
         <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
         <a href="#contact" onclick="closeMobileMenu()">Contacto</a>
@@ -1587,6 +1787,7 @@
                 <p class="hero-description">
                     Diagnóstico por UART, edición de firmware y control avanzado de Smart TVs. 
                     Software ligero, potente y con sistema de licencias criptográficamente seguro.
+                    <br><strong style="color: var(--accent-trial);">¡Prueba gratis antes de comprar!</strong>
                 </p>
 
                 <div class="hero-actions">
@@ -1594,10 +1795,9 @@
                         <i class="fas fa-download"></i>
                         Ver Software
                     </a>
-                    <a href="https://github.com/YoelCode-ui/Console-TVFix-Pro-v3" 
-                       class="btn btn-github" target="_blank" rel="noopener">
-                        <i class="fab fa-github"></i>
-                        GitHub
+                    <a href="#prueba" class="btn btn-trial">
+                        <i class="fas fa-play-circle"></i>
+                        Probar Gratis
                     </a>
                 </div>
 
@@ -1613,18 +1813,18 @@
                 </div>
             </div>
 
-			<div class="hero-visual">
-    <div class="terminal">
-        <div class="terminal-header">
-            <div class="terminal-dot red"></div>
-            <div class="terminal-dot yellow"></div>
-            <div class="terminal-dot green"></div>
-            <span class="terminal-title">Console TVFix Pro v3 — COM3 @ 115200</span>
-        </div>
-        <div class="terminal-body" id="tvTerminal"></div>
-    </div>
-</div>
+            <div class="hero-visual">
+                <div class="terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                        <span class="terminal-title">Console TVFix Pro v3 — COM3 @ 115200</span>
+                    </div>
+                    <div class="terminal-body" id="tvTerminal"></div>
+                </div>
             </div>
+        </div>
     </section>
 
     <!-- ==========================================
@@ -1786,10 +1986,10 @@
                             <i class="fab fa-whatsapp"></i>
                             Comprar
                         </a>
-                        <a href="https://github.com/YoelCode-ui/Console-TVFix-Pro-v3" 
-                           class="btn btn-secondary" target="_blank" rel="noopener">
-                            <i class="fab fa-github"></i>
-                            GitHub
+                        <a href="https://api.whatsapp.com/send?phone=5356113984&text=Hola%2C%20quiero%20solicitar%20una%20licencia%20de%20prueba%20para%20Console%20TVFix%20Pro%20v3" 
+                           class="btn btn-trial" target="_blank" rel="noopener">
+                            <i class="fas fa-play-circle"></i>
+                            Probar Gratis
                         </a>
                     </div>
                 </div>
@@ -1850,11 +2050,100 @@
                             <i class="fab fa-whatsapp"></i>
                             Comprar
                         </a>
-						<a href="https://github.com/YoelCode-ui/MstarTool" 
-                           class="btn btn-secondary" target="_blank" rel="noopener">
-                            <i class="fab fa-github"></i>
-                            GitHub
+                        <a href="https://api.whatsapp.com/send?phone=5356113984&text=Hola%2C%20quiero%20solicitar%20una%20licencia%20de%20prueba%20para%20MstarTool%203" 
+                           class="btn btn-trial" target="_blank" rel="noopener">
+                            <i class="fas fa-play-circle"></i>
+                            Probar Gratis
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         TRIAL SECTION
+         ========================================== -->
+    <section class="section trial-section" id="prueba">
+        <div class="container">
+            <div class="trial-banner animate-on-scroll">
+                <div class="trial-banner-content">
+                    <div class="trial-badge">
+                        <i class="fas fa-gift"></i>
+                        Licencia de Prueba Gratuita
+                    </div>
+                    
+                    <h2 class="trial-title">
+                        Prueba el software <span class="gradient-text-trial">antes de comprar</span>
+                    </h2>
+                    
+                    <p class="trial-description">
+                        Sabemos que comprar software sin probarlo puede generar dudas. Por eso ofrecemos una 
+                        <strong style="color: var(--accent-trial);">licencia de prueba gratuita</strong> por tiempo limitado 
+                        para que puedas evaluar todas las capacidades del software sin compromiso.
+                    </p>
+
+                    <div class="trial-features">
+                        <div class="trial-feature">
+                            <div class="trial-feature-icon">
+                                <i class="fas fa-unlock"></i>
+                            </div>
+                            <div class="trial-feature-content">
+                                <h4>Acceso Total</h4>
+                                <p>Todas las funciones y capacidades del software habilitadas durante la prueba.</p>
+                            </div>
+                        </div>
+
+                        <div class="trial-feature">
+                            <div class="trial-feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="trial-feature-content">
+                                <h4>Tiempo Limitado</h4>
+                                <p>Licencia válida por unos días muy limitados, tiempo suficiente para evaluar el software.</p>
+                            </div>
+                        </div>
+
+                        <div class="trial-feature">
+                            <div class="trial-feature-icon">
+                                <i class="fas fa-fingerprint"></i>
+                            </div>
+                            <div class="trial-feature-content">
+                                <h4>1 Licencia por Usuario</h4>
+                                <p>Solo se otorga una licencia de prueba por usuario para garantizar un uso justo del servicio.</p>
+                            </div>
+                        </div>
+
+                        <div class="trial-feature">
+                            <div class="trial-feature-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="trial-feature-content">
+                                <h4>Sin Compromiso</h4>
+                                <p>Si el software no te convence, no hay obligación de comprar. Sin preguntas, sin compromisos.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trial-actions">
+                        <a href="https://api.whatsapp.com/send?phone=5356113984&text=Hola%2C%20quiero%20solicitar%20una%20licencia%20de%20prueba%20gratuita" 
+                           class="btn btn-trial" target="_blank" rel="noopener">
+                            <i class="fas fa-play-circle"></i>
+                            Solicitar Prueba Gratis
+                        </a>
+                        <a href="#software" class="btn btn-secondary">
+                            <i class="fas fa-box"></i>
+                            Ver Productos
+                        </a>
+                    </div>
+
+                    <div class="trial-notice">
+                        <i class="fas fa-info-circle"></i>
+                        <span>
+                            <strong>Nota:</strong> La licencia de prueba tiene acceso total al software, pero solo se otorga 
+                            una vez por usuario y tiene una duración muy limitada. Esta opción existe para que puedas 
+                            evaluar el software con tranquilidad antes de tomar tu decisión de compra.
+                        </span>
                     </div>
                 </div>
             </div>
@@ -1987,6 +2276,22 @@
             <div class="faq-list">
                 <div class="faq-item animate-on-scroll delay-1">
                     <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>¿Puedo probar el software antes de comprarlo?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            ¡Sí! Ofrecemos una <span class="faq-highlight">licencia de prueba gratuita</span> por tiempo muy limitado. 
+                            Esta licencia te da <strong>acceso total a todas las capacidades del software</strong> para que puedas 
+                            evaluarlo sin compromiso. Solo se otorga una licencia de prueba por usuario para garantizar un uso justo 
+                            del servicio. Si después de probarlo decides que no es para ti, no hay ninguna obligación de compra. 
+                            Es nuestra forma de darte tranquilidad antes de tomar tu decisión.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item animate-on-scroll delay-2">
+                    <div class="faq-question" onclick="toggleFaq(this)">
                         <h3>¿Qué software se conecta por UART/COM?</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
@@ -1997,7 +2302,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item animate-on-scroll delay-2">
+                <div class="faq-item animate-on-scroll delay-3">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <h3>¿Con qué marcas o chipsets funciona cada herramienta?</h3>
                         <i class="fas fa-chevron-down"></i>
@@ -2012,7 +2317,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item animate-on-scroll delay-3">
+                <div class="faq-item animate-on-scroll delay-4">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <h3>¿Cómo funciona el sistema de licencias?</h3>
                         <i class="fas fa-chevron-down"></i>
@@ -2024,7 +2329,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item animate-on-scroll delay-4">
+                <div class="faq-item animate-on-scroll delay-1">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <h3>¿Hay versiones anteriores a la venta?</h3>
                         <i class="fas fa-chevron-down"></i>
@@ -2036,7 +2341,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item animate-on-scroll delay-1">
+                <div class="faq-item animate-on-scroll delay-2">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <h3>¿Qué sistemas operativos necesito?</h3>
                         <i class="fas fa-chevron-down"></i>
@@ -2051,7 +2356,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item animate-on-scroll delay-2">
+                <div class="faq-item animate-on-scroll delay-3">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <h3>¿Puedo usar el software en varios dispositivos?</h3>
                         <i class="fas fa-chevron-down"></i>
@@ -2063,7 +2368,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item animate-on-scroll delay-3">
+                <div class="faq-item animate-on-scroll delay-4">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <h3>¿Cómo actualizo si ya compré una versión anterior?</h3>
                         <i class="fas fa-chevron-down"></i>
@@ -2075,7 +2380,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item animate-on-scroll delay-4">
+                <div class="faq-item animate-on-scroll delay-1">
                     <div class="faq-question" onclick="toggleFaq(this)">
                         <h3>¿Qué métodos de pago aceptan?</h3>
                         <i class="fas fa-chevron-down"></i>
@@ -2178,6 +2483,7 @@
                                 <option value="tvfix-v3">Console TVFix Pro v3 ($20)</option>
                                 <option value="mstartool-3">MstarTool 3 ($20)</option>
                                 <option value="ambos">Ambos productos</option>
+                                <option value="prueba">Solicitar licencia de prueba gratuita</option>
                                 <option value="soporte">Soporte técnico</option>
                                 <option value="actualizacion">Actualización de versión anterior</option>
                                 <option value="otro">Otro</option>
@@ -2238,6 +2544,7 @@
                     <div class="footer-links">
                         <a href="#software">Console TVFix Pro v3</a>
                         <a href="#software">MstarTool 3</a>
+                        <a href="#prueba">Prueba Gratuita</a>
                         <a href="#licencia">Sistema de Licencias</a>
                         <a href="#faq">Preguntas Frecuentes</a>
                     </div>
@@ -2423,193 +2730,146 @@
         });
 
         // ==========================================
-// TERMINAL ANIMATION - MSTAR REAL FLOW
-// ==========================================
-let terminalAnimationRunning = false;
+        // TERMINAL ANIMATION - MSTAR REAL FLOW
+        // ==========================================
+        (function () {
+            const terminal = document.getElementById('tvTerminal');
+            if (!terminal) return;
 
-// ==========================================
-// TERMINAL ANIMATION — MSTAR REAL FLOW
-// ==========================================
-(function () {
-    const terminal = document.getElementById('tvTerminal');
-    if (!terminal) return;
+            const progressAddresses = [
+                '0x0x', '0x30412800x', '0x70963200x', '0x111513600x',
+                '0x152064000x', '0x192614400x', '0x233164800x', '0x263577600x',
+                '0x304128000x', '0x344678400x', '0x385228800x', '0x425779200x',
+                '0x466329600x', '0x506880000x', '0x537292800x', '0x577843200x',
+                '0x618393600x', '0x658944000x', '0x699494400x', '0x740044800x',
+                '0x780595200x', '0x811008000x', '0x851558400x', '0x892108800x',
+                '0x932659200x', '0x973209600x', '0x1013760000x', '0x1054310400x',
+                '0x1084723200x', '0x1125273600x', '0x1165824000x', '0x1206374400x',
+                '0x1246924800x', '0x1287475200x', '0x1328025600x', '0x1358438400x',
+                '0x1398988800x', '0x1439539200x', '0x1480089600x', '0x1520640000x',
+                '0x1561190400x', '0x1601740800x', '0x1632153600x', '0x1672704000x',
+                '0x1713254400x', '0x1753804800x', '0x1794355200x', '0x1834905600x',
+                '0x1875456000x', '0x1905868800x', '0x1946419200x', '0x1986969600x',
+                '0x2027520000x', '0x2068070400x', '0x2108620800x', '0x2149171200x',
+                '0x2179584000x', '0x2220134400x', '0x2260684800x', '0x2301235200x',
+                '0x2341785600x', '0x2382336000x', '0x2422886400x', '0x2453299200x',
+                '0x2493849600x', '0x2534400000x', '0x2574950400x', '0x2615500800x',
+                '0x2656051200x', '0x2696601600x', '0x2727014400x', '0x2767564800x',
+                '0x2808115200x', '0x2848665600x', '0x2889216000x', '0x2929766400x',
+                '0x2970316800x', '0x3000729600x', '0x3041280000x', '0x3081830400x',
+                '0x3122380800x', '0x3162931200x', '0x3203481600x', '0x3244032000x',
+                '0x3274444800x', '0x3314995200x', '0x3355545600x', '0x3396096000x',
+                '0x3436646400x', '0x3477196800x', '0x3517747200x', '0x3548160000x',
+                '0x3588710400x', '0x3629260800x', '0x3669811200x', '0x3710361600x',
+                '0x3750912000x', '0x3791462400x', '0x3821875200x', '0x3862425600x',
+                '0x3902976000x'
+            ];
 
-    // Direcciones de memoria reales extraídas del log de MStar
-    const progressAddresses = [
-        '0x0x', '0x30412800x', '0x70963200x', '0x111513600x',
-        '0x152064000x', '0x192614400x', '0x233164800x', '0x263577600x',
-        '0x304128000x', '0x344678400x', '0x385228800x', '0x425779200x',
-        '0x466329600x', '0x506880000x', '0x537292800x', '0x577843200x',
-        '0x618393600x', '0x658944000x', '0x699494400x', '0x740044800x',
-        '0x780595200x', '0x811008000x', '0x851558400x', '0x892108800x',
-        '0x932659200x', '0x973209600x', '0x1013760000x', '0x1054310400x',
-        '0x1084723200x', '0x1125273600x', '0x1165824000x', '0x1206374400x',
-        '0x1246924800x', '0x1287475200x', '0x1328025600x', '0x1358438400x',
-        '0x1398988800x', '0x1439539200x', '0x1480089600x', '0x1520640000x',
-        '0x1561190400x', '0x1601740800x', '0x1632153600x', '0x1672704000x',
-        '0x1713254400x', '0x1753804800x', '0x1794355200x', '0x1834905600x',
-        '0x1875456000x', '0x1905868800x', '0x1946419200x', '0x1986969600x',
-        '0x2027520000x', '0x2068070400x', '0x2108620800x', '0x2149171200x',
-        '0x2179584000x', '0x2220134400x', '0x2260684800x', '0x2301235200x',
-        '0x2341785600x', '0x2382336000x', '0x2422886400x', '0x2453299200x',
-        '0x2493849600x', '0x2534400000x', '0x2574950400x', '0x2615500800x',
-        '0x2656051200x', '0x2696601600x', '0x2727014400x', '0x2767564800x',
-        '0x2808115200x', '0x2848665600x', '0x2889216000x', '0x2929766400x',
-        '0x2970316800x', '0x3000729600x', '0x3041280000x', '0x3081830400x',
-        '0x3122380800x', '0x3162931200x', '0x3203481600x', '0x3244032000x',
-        '0x3274444800x', '0x3314995200x', '0x3355545600x', '0x3396096000x',
-        '0x3436646400x', '0x3477196800x', '0x3517747200x', '0x3548160000x',
-        '0x3588710400x', '0x3629260800x', '0x3669811200x', '0x3710361600x',
-        '0x3750912000x', '0x3791462400x', '0x3821875200x', '0x3862425600x',
-        '0x3902976000x'
-    ];
+            const PROMPT = '&lt;&lt; MStar &gt;&gt;# ';
+            const COMMAND = ' mmc dd mmc2usb 0';
+            const CYCLE_PAUSE = 2500;
 
-    const PROMPT = '&lt;&lt; MStar &gt;&gt;# ';
-    const COMMAND = ' mmc dd mmc2usb 0';
-    const CYCLE_PAUSE = 2500; // pausa al final antes de reiniciar
+            let running = false;
 
-    let running = false;
+            function makeLine(html) {
+                const div = document.createElement('div');
+                div.className = 'terminal-line';
+                div.innerHTML = html;
+                terminal.appendChild(div);
+                terminal.scrollTop = terminal.scrollHeight;
+                return div;
+            }
 
-    // Helpers
-    function makeLine(html) {
-        const div = document.createElement('div');
-        div.className = 'terminal-line';
-        div.innerHTML = html;
-        terminal.appendChild(div);
-        // Auto-scroll para mantener visible la última línea
-        terminal.scrollTop = terminal.scrollHeight;
-        return div;
-    }
+            function wait(ms) {
+                return new Promise(r => setTimeout(r, ms));
+            }
 
-    function wait(ms) {
-        return new Promise(r => setTimeout(r, ms));
-    }
+            async function typeCommand(prompt, command) {
+                const line = makeLine(
+                    `<span class="terminal-prompt">${prompt}</span>` +
+                    `<span class="terminal-command" id="typingCursor"></span>`
+                );
+                const cursor = line.querySelector('#typingCursor');
+                cursor.removeAttribute('id');
 
-    // Escribe un prompt y luego letra por letra el comando
-    async function typeCommand(prompt, command) {
-        const line = makeLine(
-            `<span class="terminal-prompt">${prompt}</span>` +
-            `<span class="terminal-command" id="typingCursor"></span>`
-        );
-        const cursor = line.querySelector('#typingCursor');
-        cursor.removeAttribute('id');
+                await wait(400);
 
-        // Pequeña pausa antes de empezar a escribir
-        await wait(400);
+                for (let i = 0; i < command.length; i++) {
+                    cursor.textContent += command[i];
+                    const delay = command[i] === ' ' ? 40 : 75 + Math.random() * 40;
+                    await wait(delay);
+                }
 
-        for (let i = 0; i < command.length; i++) {
-            cursor.textContent += command[i];
-            // Velocidad variable: más rápido en espacios, normal en letras
-            const delay = command[i] === ' ' ? 40 : 75 + Math.random() * 40;
-            await wait(delay);
-        }
+                await wait(300);
+            }
 
-        // Pausa breve como si el usuario presionara Enter
-        await wait(300);
-    }
+            function updateProgress(lineEl, address, percent) {
+                const padPercent = percent.toString().padStart(3, ' ');
+                lineEl.innerHTML =
+                    `<span class="terminal-output">Writing data at ${address} -- ${padPercent}% complete.</span>`;
+            }
 
-    // Actualiza la línea de progreso en el MISMO lugar
-    function updateProgress(lineEl, address, percent) {
-        const padPercent = percent.toString().padStart(3, ' ');
-        lineEl.innerHTML =
-            `<span class="terminal-output">Writing data at ${address} -- ${padPercent}% complete.</span>`;
-    }
+            async function runCycle() {
+                if (running) return;
+                running = true;
 
-    // ==========================================
-    // CICLO PRINCIPAL
-    // ==========================================
-    async function runCycle() {
-        if (running) return;
-        running = true;
+                terminal.innerHTML = '';
 
-        // Limpiar terminal al inicio del ciclo
-        terminal.innerHTML = '';
+                makeLine('<span class="terminal-output">UART_115200</span>');
+                await wait(400);
+                makeLine('<span class="terminal-output"></span>');
+                await wait(200);
+                makeLine('<span class="terminal-output">AC_ON</span>');
+                await wait(250);
+                makeLine('<span class="terminal-output">BIST0-OK</span>');
+                await wait(200);
+                makeLine('<span class="terminal-output">BIST1-OK</span>');
+                await wait(600);
 
-        // 1. Boot sequence real (líneas del log)
-        makeLine('<span class="terminal-output">UART_115200</span>');
-        await wait(400);
-        makeLine('<span class="terminal-output"></span>'); // línea en blanco
-        await wait(200);
-        makeLine('<span class="terminal-output">AC_ON</span>');
-        await wait(250);
-        makeLine('<span class="terminal-output">BIST0-OK</span>');
-        await wait(200);
-        makeLine('<span class="terminal-output">BIST1-OK</span>');
-        await wait(600);
+                await typeCommand(PROMPT, COMMAND);
 
-        // 2. Prompt con comando escrito letra por letra
-        await typeCommand(PROMPT, COMMAND);
+                await wait(500);
+                makeLine('<span class="terminal-output">1 Storage Device(s) found</span>');
+                await wait(700);
 
-        // 3. Detección del USB
-        await wait(500);
-        makeLine('<span class="terminal-output">1 Storage Device(s) found</span>');
-        await wait(700);
+                const progressLine = makeLine('');
+                const totalSteps = progressAddresses.length;
+                const stepTime = 22;
 
-        // 4. Línea de progreso (se reutiliza el mismo elemento)
-        const progressLine = makeLine('');
-        const totalSteps = progressAddresses.length; // 101 pasos (0% a 100%)
-        const stepTime = 22; // ~2.2 segundos para todo el progreso
+                for (let i = 0; i < totalSteps; i++) {
+                    const percent = Math.round((i / (totalSteps - 1)) * 100);
+                    updateProgress(progressLine, progressAddresses[i], percent);
+                    await wait(stepTime);
+                }
 
-        for (let i = 0; i < totalSteps; i++) {
-            const percent = Math.round((i / (totalSteps - 1)) * 100);
-            updateProgress(progressLine, progressAddresses[i], percent);
-            await wait(stepTime);
-        }
+                updateProgress(progressLine, progressAddresses[progressAddresses.length - 1], 100);
+                await wait(400);
 
-        // Asegurar 100% al final
-        updateProgress(progressLine, progressAddresses[progressAddresses.length - 1], 100);
-        await wait(400);
+                makeLine('<span class="terminal-output">Dump Block: 7634936</span>');
+                await wait(500);
 
-        // 5. Dump Block (solo después del 100%)
-        makeLine('<span class="terminal-output">Dump Block: 7634936</span>');
-        await wait(500);
+                const finalLine = makeLine(
+                    `<span class="terminal-prompt">${PROMPT}</span>` +
+                    `<span class="terminal-cursor"></span>`
+                );
+                finalLine.style.opacity = '1';
 
-        // 6. Nuevo prompt con cursor parpadeando
-        const finalLine = makeLine(
-            `<span class="terminal-prompt">${PROMPT}</span>` +
-            `<span class="terminal-cursor"></span>`
-        );
-        finalLine.style.opacity = '1';
+                await wait(CYCLE_PAUSE);
 
-        // 7. Pausa antes de reiniciar el ciclo completo
-        await wait(CYCLE_PAUSE);
-
-        running = false;
-        runCycle(); // reinicia
-    }
-
-    // ==========================================
-    // INTERSECTION OBSERVER — solo animar cuando es visible
-    // ==========================================
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !running) {
+                running = false;
                 runCycle();
             }
-        });
-    }, { threshold: 0.2 });
 
-    observer.observe(terminal);
-})();
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !running) {
+                        runCycle();
+                    }
+                });
+            }, { threshold: 0.2 });
 
-// Iniciar cuando la terminal sea visible (Intersection Observer)
-const terminalObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !terminalAnimationRunning) {
-            setTimeout(animateTerminal, 300);
-        }
-    });
-}, { threshold: 0.3 });
-
-const terminalEl = document.getElementById('tvTerminal');
-if (terminalEl) {
-    terminalObserver.observe(terminalEl);
-}
-
-// También iniciar al cargar (fallback)
-window.addEventListener('load', () => {
-    setTimeout(animateTerminal, 800);
-});
+            observer.observe(terminal);
+        })();
 
         // ==========================================
         // ACTIVE NAV LINK HIGHLIGHT
