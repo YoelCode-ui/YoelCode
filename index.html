@@ -193,6 +193,30 @@ h2{font-family:var(--f-disp);font-weight:800;font-size:clamp(28px,3.4vw,42px);le
 .chip small.par{color:#e6c229}
 .chips-note{text-align:center;color:var(--dim);font-size:13px;margin-top:26px;font-family:var(--f-mono)}
 
+/* ══ Descargas ══ */
+.downloads{padding:104px 0;background:linear-gradient(180deg,transparent,rgba(0,229,255,.03) 50%,transparent)}
+.dl-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
+.dl-card{background:linear-gradient(160deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:18px;padding:36px;transition:transform .3s,border-color .3s,box-shadow .3s;position:relative;overflow:hidden}
+.dl-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--dl-color,var(--cyan)),transparent);opacity:0;transition:opacity .3s}
+.dl-card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--dl-color,var(--cyan)) 40%,transparent);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.dl-card:hover::before{opacity:1}
+.dl-icon{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;margin-bottom:20px;background:color-mix(in srgb,var(--dl-color,var(--cyan)) 12%,transparent);border:1px solid color-mix(in srgb,var(--dl-color,var(--cyan)) 35%,transparent)}
+.dl-icon svg{width:28px;height:28px;stroke:var(--dl-color,var(--cyan))}
+.dl-card h3{font-family:var(--f-disp);font-size:22px;font-weight:800;margin-bottom:10px}
+.dl-card p{color:var(--mut);font-size:14.5px;margin-bottom:24px;line-height:1.6}
+.dl-version{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:8px;background:rgba(148,163,184,.08);border:1px solid var(--line2);margin-bottom:22px}
+.dl-version span{font-family:var(--f-mono);font-size:12.5px;font-weight:700;color:var(--dl-color,var(--cyan))}
+.dl-version small{color:var(--dim);font-size:11.5px}
+.dl-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:11px;font-weight:700;font-size:15px;transition:transform .2s,box-shadow .2s,background .2s;text-decoration:none}
+.dl-btn:hover{transform:translateY(-2px)}
+.dl-btn-primary{background:linear-gradient(135deg,var(--dl-color,var(--cyan)),color-mix(in srgb,var(--dl-color,var(--cyan)) 80%,#000));box-shadow:0 6px 24px rgba(0,229,255,.25)}
+.dl-btn-primary:hover{box-shadow:0 10px 32px rgba(0,229,255,.4)}
+.dl-btn svg{width:18px;height:18px;stroke:#04252b;flex:none}
+
+@media(max-width:760px){
+  .dl-grid{grid-template-columns:1fr}
+}
+
 /* ══ Productos ══ */
 .product{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:linear-gradient(180deg,var(--panel),var(--panel2));margin-bottom:34px;transition:border-color .3s,box-shadow .3s}
 .product:hover{border-color:var(--pc);box-shadow:0 24px 70px rgba(0,0,0,.45)}
@@ -380,6 +404,7 @@ footer{border-top:1px solid var(--line);background:#070b10;padding:64px 0 0;marg
       <a href="#home" class="active">Inicio</a>
       <a href="#features">Características</a>
       <a href="#software">Software</a>
+      <a href="#descargas">Descargas</a>
       <a href="#licencia">Licencias</a>
       <a href="#prueba">Prueba Gratis</a>
       <a href="#faq">FAQ</a>
@@ -396,6 +421,7 @@ footer{border-top:1px solid var(--line);background:#070b10;padding:64px 0 0;marg
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="#home">Inicio</a><a href="#features">Características</a><a href="#software">Software</a>
+  <a href="#descargas">Descargas</a>
   <a href="#licencia">Licencias</a><a href="#prueba">Prueba Gratis</a><a href="#faq">FAQ</a><a href="#contact">Contacto</a>
 </div>
 
@@ -691,6 +717,67 @@ footer{border-top:1px solid var(--line);background:#070b10;padding:64px 0 0;marg
   </div>
 </section>
 
+<!-- ══════════ DESCARGAS ══════════ -->
+<section class="section downloads" id="descargas">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Descargas</div>
+      <h2>Obtén las últimas versiones</h2>
+      <p class="sec-sub">Descarga directamente desde GitHub las versiones más recientes de nuestros productos.</p>
+    </div>
+    <div class="dl-grid">
+      <!-- Console TVFix Pro v3 -->
+      <div class="dl-card reveal" style="--dl-color:#00e5ff">
+        <div class="dl-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4 17 10 11 4 5"/>
+            <line x1="12" y1="19" x2="20" y2="19"/>
+          </svg>
+        </div>
+        <h3>Console TVFix Pro v3</h3>
+        <p>Diagnóstico y control avanzado de Smart TVs por UART, Bluetooth y USB OTG. Terminal profesional con TrueColor 24-bit.</p>
+        <div class="dl-version">
+          <span>Última versión</span>
+          <small>GitHub Releases</small>
+        </div>
+        <a class="dl-btn dl-btn-primary" target="_blank" rel="noopener" href="https://github.com/YoelCode-ui/Console-TVFix-Pro-v3/releases/latest">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Descargar
+        </a>
+      </div>
+
+      <!-- MstarTool 3 -->
+      <div class="dl-card reveal" data-delay="100" style="--dl-color:#ffab00">
+        <div class="dl-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <h3>MstarTool 3</h3>
+        <p>Edición de firmware para chipsets Mstar: extracción de particiones, packer/unpacker de dumps, edición de logo y panel.</p>
+        <div class="dl-version">
+          <span>Última versión</span>
+          <small>GitHub Releases</small>
+        </div>
+        <a class="dl-btn dl-btn-primary" target="_blank" rel="noopener" href="https://github.com/YoelCode-ui/MstarTool/releases/latest">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Descargar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+  
 <!-- ══════════ LICENCIA ══════════ -->
 <section class="section" id="licencia">
   <div class="container">
@@ -941,7 +1028,7 @@ const spy = new IntersectionObserver(es => es.forEach(e => {
   if (!e.isIntersecting) return;
   $$('#navLinks a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
 }), { rootMargin: '-40% 0px -55% 0px' });
-['home','features','software','licencia','prueba','faq','contact'].forEach(id => {
+['home','features','software','descargas','licencia','prueba','faq','contact'].forEach(id => {
   const s = document.getElementById(id); if (s) spy.observe(s);
 });
 
